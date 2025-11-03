@@ -1,51 +1,22 @@
 #include <stdio.h>
 
-void clearInputBuffer() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-}
-
 int main() {
     int n;
+    printf("Nhap so phan tu cua mang: ");
+    scanf("%d", &n);
 
-    printf("--- NHAP VAO KICH THUOC MANG N x N ---\n");
+    int a[n];
 
-    do {
-        printf("Moi ban nhap vao kich thuoc n (n > 0): ");
-        if (scanf("%d", &n) != 1 || n <= 0) {
-            printf("Loi nhap lieu!\n");
-            clearInputBuffer();
-            n = 0;
-        } else {
-            clearInputBuffer(); 
-        }
-    } while (n <= 0);
-
-    int a[n][n];
-
-    printf("\n--- NHAP GIA TRI CHO TUNG PHAN TU ---\n");
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            while (1) {
-                printf("Moi ban nhap vao gia tri phan tu a[%d][%d]: ", i, j);
-                if (scanf("%d", &a[i][j]) != 1) {
-                    printf("Loi nhap lieu! Vui long nhap so nguyen.\n");
-                    clearInputBuffer();
-                } else {
-                    clearInputBuffer();
-                    break;
-                }
-            }
-        }
+        printf("Nhap phan tu thu %d: ", i + 1);
+        scanf("%d", &a[i]);
     }
 
-    printf("\n--- MA TRAN HINH VUONG BAN DA NHAP ---\n");
+    printf("\nCac phan tu trong mang la:\n");
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%5d", a[i][j]);
-        }
-        printf("\n");
+        printf("%d ", a[i]);
     }
 
+    printf("\n");
     return 0;
 }

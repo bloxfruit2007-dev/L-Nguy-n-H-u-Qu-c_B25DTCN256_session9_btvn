@@ -1,37 +1,31 @@
 #include <stdio.h>
-int main(){
-	const int n = 4; 
-	int a[n][n] = {
-		
-		{4, 4, 4, 4} ,
-		{4, 4, 4, 4} ,
-		{4, 4, 4, 4} ,
-		{4, 4, 4, 4} 
-	};
-	printf ("---MANG DA KHI BAO LA---\n");
-	for (int i = 0; i < n; i++){
-		for (int j = 0; j < n; j++){
-			printf ("%5d", a[i][j]); 
-		} 
-		printf ("\n"); 
-	} 
-	 
-	int Sum; 
-	int four; 
-	for(int i = 0; i < n; i++){
-		four =  a[i][i];		
-		Sum += four;
-	} 
-	
-	printf("---CAC PHAN TU TREN DUONG CHEO VA TONG CUA CAC PHAN TU---\n");
-	printf ("Cac phan tu nam trên duong cheo la: \n") ;
-	
-	for(int i = 0; i < n; i++){
-		printf ("%5d", a[i][i]);
-	}
-	printf ("\n") ;
-	printf 	("\nTong cua cac phan tu nam tren duong cheo la: %d", Sum);
-	
-	return 0; 
-	
-} 
+
+int main() {
+    int n;
+    printf("Nhap so phan tu n: ");
+    scanf("%d", &n);
+
+    int a[n]; 
+    printf("Nhap cac phan tu cua mang:\n");
+    for (int i = 0; i < n; i++) {
+        printf("a[%d] = ", i);
+        scanf("%d", &a[i]);
+    }
+
+    int i = 0;
+    int j = n - 1;
+    while (i < j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+        i++;
+        j--;
+    }
+    printf("\nMang sau khi dao nguoc la:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+
+    printf("\n");
+    return 0;
+}
